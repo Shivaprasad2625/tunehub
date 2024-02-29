@@ -82,24 +82,7 @@ public class PaymentController {
 	}
 	
 	
-	//payment-success -> update to premium user
-	@GetMapping("/payment-success")
-	public String paymentSuccess(HttpSession session){
-		
-		String email = (String) session.getAttribute("email");
-		User user = userService.getUser(email);
-		user.setIspremium(true);
-		userService.updateUser(user);
-		return "customerhome";
-	}
 	
-	
-	//payment-failure -> redirect to login 
-	@GetMapping("/payment-failure")
-	public String paymentFailure(){
-		//payment-error page
-		return "customerhome";
-	}
 	
 	
 		
